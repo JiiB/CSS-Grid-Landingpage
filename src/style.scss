@@ -1,19 +1,63 @@
 body, html {
     margin: 0;
     padding: 0;
-    overflow: hidden;
     font-size: 18px;
+}
+
+$general-spaces: (
+        "0": 0,
+        "xxs": 7px,
+        "xs": 15px,
+        "sm": 30px,
+        "md": 50px,
+        "lg": 70px,
+        "xlg": 100px
+);
+
+@each $name, $space in $general-spaces {
+  .p-#{$name} { padding: $space !important; }
+  .pl-#{$name} { padding-left: $space !important; }
+  .pr-#{$name} { padding-right: $space !important; }
+  .pt-#{$name} { padding-top: $space !important; }
+  .pb-#{$name} { padding-bottom: $space !important; }
+
+  .m-#{$name} { margin: $space !important; }
+  .ml-#{$name} { margin-left: $space !important; }
+  .mr-#{$name} { margin-right: $space !important; }
+  .mt-#{$name} { margin-top: $space !important; }
+  .mb-#{$name} { margin-bottom: $space !important; }
+}
+
+.text-center{
+    text-align: center;
+}
+.mt-450{
+    margin-top: 450px;
+}
+
+h1 {
+    font-size: 120px;
+    font-weight:700;
+    color: rgb(255, 255, 255);
+    text-shadow: -2px 2px 0 #000, -3px 3px 0 #468f62, 0px 3px 0 #46b756, 3px 0px 0 #008014;
+    position: relative;
+}
+.grid-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 650px;
 }
 .grid {
     background: linear-gradient(90deg, #247065,#60A65F);
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    height: 400px;
-    width: 100%;
+    height: 100%;
+    width: 100%; 
     position: absolute;
-    // transform: rotate(-10deg) scale(1.68);
-    transform: skewY(-10deg) scale(1.68);
+    top: -160px;
+    transform: skewY(-10deg);
+    box-shadow: -14px 8px 20px -12px #000;
 
     .span:nth-child(1){
         grid-column: 5 / span 2;
@@ -38,5 +82,33 @@ body, html {
         grid-row: 1 / span 2;
         background: linear-gradient(90deg, #378162, #529a60);
         opacity: .5;
+    }
+}
+
+.triangle-wrap {
+    // overflow: hidden;
+    // position: relative;
+
+    .triangle {
+        background: #f5f5f5;
+        height: 500px;  
+        width: 100%;
+        position: absolute;
+        transform: skewY(19deg);
+        z-index: -1;
+    }
+}
+
+.card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 15px;
+    position: relative;
+    top: 0;
+    box-shadow: 0px 1px 8px -3px black;
+    transition: 100ms ease-in-out;
+    &:hover {
+        top: -1px;
+        box-shadow: 0px 1px 10px -3px black;
     }
 }
